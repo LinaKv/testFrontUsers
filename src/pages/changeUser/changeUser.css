@@ -1,0 +1,31 @@
+.userDataWrapper {
+    width: 100%;
+}
+
+.personalDataWrapper {
+    width: 35vw;
+    min-width: 300px;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+.toUsersWrapper {
+    width: 100%;
+    min-width: 300px;
+    display: flex;
+    justify-content: end;
+    margin-bottom: 30px;
+}
+
+h3 {
+    font-size: 1rem;
+}
+
+.buttonDeleteWrapper {
+    margin-top: 20px;
+}

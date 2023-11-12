@@ -1,0 +1,66 @@
+p {
+    margin: 0;
+}
+
+.userWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-top: 10px;
+    gap: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    height: 46px;
+    padding: 0.75rem 0.75rem;
+    width: 100%;
+    height: 80px;
+    position: relative;
+    background: #fffdfd;
+}
+
+.userMainInfo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    width: 100%;
+}
+
+.userIsOnline {
+    width: 30px;
+    right: 10px;
+}
+
+.username {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.userInfoWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+}
+
+.userInfo {
+    display: flex;
+    gap: 10px;
+}
+
+.superuser {
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    width: max-content;
+    padding: 3px;
+    font-size: small;
+}
+
+.settingsWrapperUser {
+    position: absolute;
+    width: 20px;
+    right: 10px;
+    cursor: pointer;
+    top: 35%;
+}

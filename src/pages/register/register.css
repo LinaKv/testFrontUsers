@@ -1,0 +1,9 @@
+.passwordWrapper,
+.userNameWrapper {
+    width: 100%;
+    position: relative;
+}
+
+p {
+    margin-top: 0px;
+}

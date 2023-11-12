@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f2f4f8;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    display: block;
+    color: #000000;
+}
+
+button {
+    outline: none;
+    border: none;
+}
+
+form,
+input,
+#password,
+.p-float-label {
+    width: 100%;
+}
+
+.contentWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputInfo {
+    height: 46px;
+    padding: 0.75rem 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-family: var(--font-family);
+    font-feature-settings: var(--font-feature-settings, normal);
+    font-size: 1rem;
+    color: #495057;
+    outline: none;
+}
+
+.inputInfo:focus {
+    border: 1px solid #3b82f6;
+    box-shadow: 0px 0px 5px #3b82f6;
+}
+
+.inputInfo:required {
+    border: 1px solid #3b82f6;
+}
+
+.inputInfo:disabled {
+    background: #fffdfd;
+    border: 0;
+    color: #495057;
+}
+
+.inputInfoError {
+    height: 46px;
+    padding: 0.75rem 0.75rem;
+    border: 1px solid tomato;
+    border-radius: 6px;
+    font-family: var(--font-family);
+    font-feature-settings: var(--font-feature-settings, normal);
+    font-size: 1rem;
+    color: #495057;
+    outline: none;
+}
+
+.inputInfoError:focus {
+    border: 1px solid tomato;
+    box-shadow: 0px 0px 5px tomato;
+}
+
+.buttonSubmit {
+    width: 100%;
+    color: #ffffff;
+    background: #6366f1;
+    padding: 0.75rem 1.25rem;
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 6px;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    font-weight: normal;
+    font-weight: bold;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.buttonSubmit:hover {
+    background: #4244c5;
+}
+
+.buttonDelete {
+    width: 100%;
+    color: #ffffff;
+    background: tomato;
+    padding: 0.75rem 1.25rem;
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 6px;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    font-weight: normal;
+    font-weight: bold;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.buttonDelete:hover {
+    background: rgb(113, 34, 20);
+}
+
+.pageContainer {
+    margin: 1rem;
+    width: 60vw;
+    max-width: 600px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+@media (min-width: 1024px) {
+    .pageContainer {
+        margin: 3rem;
+        min-width: 300px;
+    }
+}
+
+.pageHeader {
+    font-size: 2rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.inputsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.buttonSubmit {
+    margin-top: 60px;
+}
+
+.buttonSubmit:disabled {
+    background: #495057;
+    cursor: not-allowed;
+}
+
+.infoWrapper {
+    position: relative;
+    padding: 0.75rem 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    background: #fffdfd;
+    margin-top: 20px;
+}
+
+.settingsWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 0.75rem;
+}
+
+.setting {
+    width: 20px;
+    right: 10px;
+    cursor: pointer;
+    top: 22%;
+}
