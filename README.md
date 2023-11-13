@@ -1,27 +1,33 @@
-# React + TypeScript + Vite
+# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Stack:
+TypeScript, CSS, React, redux toolkit, axios, react-toastify, react-router-dom, throttle-debounce
 
-Currently, two official plugins are available:
+### Чтобы запустить:
+npm i
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+npm run dev
 
-## Expanding the ESLint configuration
+### Скришот:
+![image](https://github.com/LinaKv/testFrontUsers/assets/107919324/6c0b2b6d-0976-42af-b106-4facbbfe9f30)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+![image](https://github.com/LinaKv/testFrontUsers/assets/107919324/02403817-82ff-4a29-9822-d977997cc5b8)
 
-- Configure the top-level `parserOptions` property like this:
+![image](https://github.com/LinaKv/testFrontUsers/assets/107919324/c4e1553a-5461-46cc-905a-057639da138d)
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+![image](https://github.com/LinaKv/testFrontUsers/assets/107919324/0ea72915-81bd-4332-8f21-82829a719745)
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Notes:
+Что можно добавить еще:
+
+1) Дополнительный этап в удаление юзера, чтобы избежать случайного нажатия кнопки
+
+2) Более продуманное появление уведомлений об успешной регистрации, удалении и т.д
+
+3) Предусмотреть большее кол-во юзеров и отображать их в этом случае постранично, а не бесконечный скролл
+
+4) Сделать рефакторинг и вынести некоторые участки кода в хуки
+
+5) Добавить анимацию нажатия на кнопки
+
+6) В случае, если в поиске по юзерам ничего не было найдено, уведомлять об этом
