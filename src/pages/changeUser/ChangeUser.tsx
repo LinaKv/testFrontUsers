@@ -1,16 +1,22 @@
 import './changeUser.css';
 import React from 'react';
-import { PencilSquareIcon } from '@heroicons/react/24/outline';
 import { useState, useEffect } from 'react';
 import { ChangeEvent } from 'react';
 import NavigateButton from '../../components/ButtonNavigate/NavigateButton';
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../../store/store';
-import { getUser, resetUser, changeUser, deleteUser } from '../../store/user/userSlice';
+import {
+    getUser,
+    resetUser,
+    changeUser,
+    deleteUser,
+    userSelector,
+    isLoadingUserSelector,
+    isErrorUserSelector,
+    messageUserSelector,
+} from '../../store/user/userSlice';
 import { useNavigate, useParams } from 'react-router-dom';
 import BigSpinner from '../../components/BigSpinner/BigSpinner';
 import { isValidPassword, isValidUserNameForChange } from '../../helpers/utils';
-import InputRequirements from '../../components/inputsRequirements/InputRequirements';
 import { FormEvent } from 'react';
 import { UserChangeInfo } from '../../type/type';
 import { toast, ToastContainer } from 'react-toastify';
@@ -24,13 +30,6 @@ function ChangeUser() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const [isOpen, setIsOpen] = useState({
-        username: true,
-        first_name: true,
-        last_name: true,
-        password: true,
-    });
-
     // user info
     const [formData, setFormData] = useState({
         username: '',
@@ -43,7 +42,10 @@ function ChangeUser() {
     const [isPasswordCorrect, setIsPasswordCorrect] = useState(isValidPassword(password));
     const [isUsernameCorrect, setIsUsernameCorrect] = useState(isValidUserNameForChange(username));
 
-    const { user, isLoadingUser, isErrorUser, messageUser } = useSelector((state: RootState) => state.user);
+    const user = useSelector(userSelector);
+    const isLoadingUser = useSelector(isLoadingUserSelector);
+    const isErrorUser = useSelector(isErrorUserSelector);
+    const messageUser = useSelector(messageUserSelector);
 
     const onChange = (e: ChangeEvent<HTMLInputElement>) => {
         setFormData((prevState) => ({

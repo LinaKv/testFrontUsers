@@ -105,3 +105,9 @@ const authSlice = createSlice({
 
 export default authSlice.reducer;
 export const { reset } = authSlice.actions;
+export const usersSelector = (state: RootState) => state.auth.users;
+export const tokenSelector = (state: RootState) => state.auth.token;
+export const isLoadingSelector = (state: RootState) => state.auth.isLoading;
+export const isErrorSelector = (state: RootState) => state.auth.isError;
+export const messageSelector = (state: RootState) => state.auth.message;
+export const isSuccessSelector = (state: RootState) => state.auth.isSuccess;

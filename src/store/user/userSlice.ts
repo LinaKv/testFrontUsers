@@ -19,7 +19,6 @@ if (stored) {
 }
 
 interface State {
-    token: string | null;
     user: UserInfo | null;
     isErrorUser: boolean;
     isSuccessUser: boolean;
@@ -28,7 +27,6 @@ interface State {
 }
 
 const initialState: State = {
-    token: tokenFromLocal,
     user: null,
     isErrorUser: false,
     isSuccessUser: false,
@@ -152,3 +150,8 @@ const userSlice = createSlice({
 
 export default userSlice.reducer;
 export const { resetUser } = userSlice.actions;
+export const userSelector = (state: RootState) => state.user.user;
+export const isLoadingUserSelector = (state: RootState) => state.user.isLoadingUser;
+export const isErrorUserSelector = (state: RootState) => state.user.isErrorUser;
+export const messageUserSelector = (state: RootState) => state.user.messageUser;
+export const isSuccessUserSelector = (state: RootState) => state.user.isSuccessUser;

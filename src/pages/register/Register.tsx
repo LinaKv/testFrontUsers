@@ -6,7 +6,15 @@ import { isValidPassword, isValidUserName } from '../../helpers/utils';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store/store';
 import { useNavigate } from 'react-router-dom';
-import { register, resetUser } from '../../store/user/userSlice';
+import {
+    isErrorUserSelector,
+    isLoadingUserSelector,
+    isSuccessUserSelector,
+    messageUserSelector,
+    register,
+    resetUser,
+    userSelector,
+} from '../../store/user/userSlice';
 import { UserInt } from '../../type/type';
 import InputRequirements from '../../components/inputsRequirements/InputRequirements';
 import Spinner from '../../components/Spinner/Spinner';
@@ -34,8 +42,10 @@ function Register() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    //todo
-    const { isLoadingUser, isErrorUser, isSuccessUser, messageUser } = useSelector((state: RootState) => state.user);
+    const isLoadingUser = useSelector(isLoadingUserSelector);
+    const isErrorUser = useSelector(isErrorUserSelector);
+    const messageUser = useSelector(messageUserSelector);
+    const isSuccessUser = useSelector(isSuccessUserSelector);
 
     // if error
     useEffect(() => {

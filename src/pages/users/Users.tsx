@@ -7,20 +7,19 @@ import { ChangeEvent } from 'react';
 import { throttle } from 'throttle-debounce';
 import NavigateButton from '../../components/ButtonNavigate/NavigateButton';
 import { useSelector, useDispatch } from 'react-redux';
-import { getUsers } from '../../store/auth/authSlice';
+import { getUsers, isLoadingSelector } from '../../store/auth/authSlice';
 import { resetUser } from '../../store/user/userSlice';
-import { RootState } from '../../store/store';
 import BigSpinner from '../../components/BigSpinner/BigSpinner';
-import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { usersSelector } from '../../store/auth/authSlice';
 
 function Users() {
     const dispatch = useDispatch();
     const [filteredData, setFilteredData] = useState<UserInfo[]>([]);
 
     // todo
-    const { isLoading, users } = useSelector((state: RootState) => state.auth);
-    // const users = useSelector(selectUsers)
+    const users = useSelector(usersSelector);
+    const isLoading = useSelector(isLoadingSelector);
 
     useEffect(() => {
         // clean user info after register or change user
@@ -58,7 +57,6 @@ function Users() {
 
     return (
         <div className="contentWrapper">
-            <ToastContainer />
             {/* NAVIGATION */}
             <div className="changeUserInfoWrapper">
                 <NavigateButton navigateTo={'/Register'} buttonName="Create New User" />

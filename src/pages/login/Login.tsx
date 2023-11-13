@@ -20,7 +20,6 @@ function Login() {
     const navigate = useNavigate();
 
     // get info
-    // todo: move to authSlice and export here
     const { token, isLoading, isError, isSuccess, message } = useSelector((state: RootState) => state.auth);
 
     useEffect(() => {
@@ -48,6 +47,7 @@ function Login() {
 
     const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
         const userData = {
             username,
             password,
@@ -88,7 +88,9 @@ function Login() {
                         />
                     </div>
 
-                    <button className="buttonSubmit">{isLoading ? <Spinner /> : 'Login'}</button>
+                    <button className="buttonSubmit" disabled={!!!username || !!!password}>
+                        {isLoading ? <Spinner /> : 'Login'}
+                    </button>
                 </form>
             </div>
         </div>
