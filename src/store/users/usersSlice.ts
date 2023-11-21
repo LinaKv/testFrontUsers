@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import authService from './authService';
+import authService from './usersService';
 import { UserInt, userReq, UserInfo, UserChangeInfo, ChangeInfo } from '../../type/type';
 import { RootState } from '../store';
 import { isExpired } from '../../helpers/token';
@@ -36,9 +36,9 @@ const initialState: State = {
     message: '',
 };
 
-const selectToken = (state: RootState) => state.auth.token;
+const selectToken = (state: RootState) => state.users.token;
 // get users
-export const getUsers = createAsyncThunk('auth/getUsers', async (users, thunkAPI: any) => {
+export const getUsers = createAsyncThunk('users/getUsers', async (users, thunkAPI: any) => {
     try {
         const token = selectToken(thunkAPI.getState());
         return await authService.getUsers(`Token ${token}`);
@@ -49,7 +49,7 @@ export const getUsers = createAsyncThunk('auth/getUsers', async (users, thunkAPI
 });
 
 // login user
-export const login = createAsyncThunk('auth/login', async (user: userReq, thunkAPI) => {
+export const login = createAsyncThunk('users/login', async (user: userReq, thunkAPI) => {
     try {
         return await authService.login(user);
     } catch (error) {
@@ -58,8 +58,8 @@ export const login = createAsyncThunk('auth/login', async (user: userReq, thunkA
     }
 });
 
-const authSlice = createSlice({
-    name: 'auth',
+const usersSlice = createSlice({
+    name: 'users',
     initialState: initialState,
     reducers: {
         reset: (state) => {
@@ -103,11 +103,11 @@ const authSlice = createSlice({
     },
 });
 
-export default authSlice.reducer;
-export const { reset } = authSlice.actions;
-export const usersSelector = (state: RootState) => state.auth.users;
-export const tokenSelector = (state: RootState) => state.auth.token;
-export const isLoadingSelector = (state: RootState) => state.auth.isLoading;
-export const isErrorSelector = (state: RootState) => state.auth.isError;
-export const messageSelector = (state: RootState) => state.auth.message;
-export const isSuccessSelector = (state: RootState) => state.auth.isSuccess;
+export default usersSlice.reducer;
+export const { reset } = usersSlice.actions;
+export const usersSelector = (state: RootState) => state.users.users;
+export const tokenSelector = (state: RootState) => state.users.token;
+export const isLoadingSelector = (state: RootState) => state.users.isLoading;
+export const isErrorSelector = (state: RootState) => state.users.isError;
+export const messageSelector = (state: RootState) => state.users.message;
+export const isSuccessSelector = (state: RootState) => state.users.isSuccess;

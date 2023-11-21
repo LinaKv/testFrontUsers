@@ -4,7 +4,7 @@ import { ChangeEvent, FormEvent } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { RootState } from '../../store/store';
-import { reset, login } from '../../store/auth/authSlice';
+import { reset, login } from '../../store/users/usersSlice';
 import Spinner from '../../components/Spinner/Spinner';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -20,7 +20,7 @@ function Login() {
     const navigate = useNavigate();
 
     // get info
-    const { token, isLoading, isError, isSuccess, message } = useSelector((state: RootState) => state.auth);
+    const { token, isLoading, isError, isSuccess, message } = useSelector((state: RootState) => state.users);
 
     useEffect(() => {
         if (isError) {
@@ -88,7 +88,7 @@ function Login() {
                         />
                     </div>
 
-                    <button className="buttonSubmit" disabled={!!!username || !!!password}>
+                    <button className="buttonSubmit" disabled={!username || !password}>
                         {isLoading ? <Spinner /> : 'Login'}
                     </button>
                 </form>

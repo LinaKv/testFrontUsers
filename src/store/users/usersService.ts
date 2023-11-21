@@ -28,9 +28,9 @@ const login = async (userData: userReq) => {
     return response.data;
 };
 
-const authService = {
+const usersService = {
     login,
     getUsers,
 };
 
-export default authService;
+export default usersService;

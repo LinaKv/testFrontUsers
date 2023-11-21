@@ -7,11 +7,11 @@ import { ChangeEvent } from 'react';
 import { throttle } from 'throttle-debounce';
 import NavigateButton from '../../components/ButtonNavigate/NavigateButton';
 import { useSelector, useDispatch } from 'react-redux';
-import { getUsers, isLoadingSelector } from '../../store/auth/authSlice';
+import { getUsers, isLoadingSelector } from '../../store/users/usersSlice';
 import { resetUser } from '../../store/user/userSlice';
 import BigSpinner from '../../components/BigSpinner/BigSpinner';
 import 'react-toastify/dist/ReactToastify.css';
-import { usersSelector } from '../../store/auth/authSlice';
+import { usersSelector } from '../../store/users/usersSlice';
 
 function Users() {
     const dispatch = useDispatch();
@@ -73,7 +73,6 @@ function Users() {
             </div>
             {/* USERS */}
             <div className="usersWrapper">
-                {/* array.map */}
                 {filteredData.map((user: UserInfo) => (
                     <User user={user} key={user.id} />
                 ))}

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { tokenSelector } from '../store/auth/authSlice';
+import { tokenSelector } from '../store/users/usersSlice';
 
 export const useAuthStatus = () => {
     const [loggedIn, setLoggedIn] = useState(false);
